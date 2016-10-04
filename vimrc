@@ -25,10 +25,11 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Settings
 
+set clipboard=unnamed           "To enable copy paste in vim
 syntax enable                   "Turn on syntax highlighting
-set number	" set the line number
-set backspace=indent,eol,start  " Backspace over everything
-set mouse=a " enabling mouse suppport
+set number	                    "set the line number
+set backspace=indent,eol,start  "Backspace over everything
+set mouse=a                     "enabling mouse suppport
 set wildmode=longest,list,full  "bash-like tab completion.
 set wildmenu                    "first tab completes, second provides a list, third cycles through the options
 

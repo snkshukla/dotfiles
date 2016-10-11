@@ -1,13 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/shubham/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cobalt2"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='mvim'
+export EDITOR='vim'
 
 . `brew --prefix`/etc/profile.d/z.sh
 export PATH="/Users/shubham/anaconda2/bin:$PATH"
@@ -33,3 +33,6 @@ echo "----------------------------------------"
 echo "Current time: `date +"%r %a %d %h %y"`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

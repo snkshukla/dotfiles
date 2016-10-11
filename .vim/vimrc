@@ -1,6 +1,5 @@
 set t_Co=256                  "enable 256 colors
-colorscheme Dev_Delight
-
+colorscheme kellys
 " Stuff related to vim-plug
 
 call plug#begin('~/.vim/plugged')
@@ -14,6 +13,8 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-rails'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -44,19 +45,10 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab                   "Replace tabs with spaces
-
 set cursorline                  "Highlight current line
 set hidden                      "Reuse Window for multiple buffers
-
 set smartindent
 set autoindent
-
-" Remap keys for switching between buffers
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-
 set ignorecase                  "Case-insensitive searching.
 set smartcase                   "But case-sensitive if expression contains a capital letter.
 set incsearch                   "Search as you type
@@ -64,7 +56,6 @@ set incsearch                   "Search as you type
 "Highlight Search
 highlight Search ctermbg=208 ctermfg=Black cterm=NONE
 set hlsearch
-
 
 " Highlight trailing spaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -81,19 +72,23 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Enabling ruby extensions
-
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
-
-set laststatus=2                "Show the status line all the time
-set showcmd                     "Display incomplete commands.
+set laststatus=2      "Show the status line all the time
+set showcmd           "Display incomplete commands.
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
+" set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+"
 " Key mappings
+
+" Remap keys for switching between buffers
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 map <C-n> :NERDTreeToggle<CR>
 nnoremap .. :FZF<CR>
@@ -101,4 +96,22 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 " bind \ (backward slash) to grep shortcut
 " command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+nnoremap \\ :Ag<CR>
+
+"Airline configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+"enabling displaying index of the buffer.
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab

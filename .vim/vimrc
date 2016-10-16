@@ -100,6 +100,7 @@ nnoremap \\ :Ag<CR>
 
 "Airline configuration
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamenod = ':~:.'
 let g:airline_powerline_fonts = 1
 
 "enabling displaying index of the buffer.

@@ -15,6 +15,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ngmy/vim-rubocop'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -33,6 +34,7 @@ set backspace=indent,eol,start  "Backspace over everything
 set mouse=a                     "enabling mouse suppport
 set wildmode=longest,list,full  "bash-like tab completion.
 set wildmenu                    "first tab completes, second provides a list, third cycles through the options
+setlocal wrap
 
 " filetype settings
 filetype on                     "Enable filetype detection
@@ -81,7 +83,10 @@ set laststatus=2      "Show the status line all the time
 set showcmd           "Display incomplete commands.
 " Useful status information at bottom of screen
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-"
+
+" Buffer related settings:
+set splitright
+set splitbelow
 " Key mappings
 
 " Remap keys for switching between buffers
@@ -93,7 +98,7 @@ noremap <C-l> <C-w>l
 map <C-n> :NERDTreeToggle<CR>
 nnoremap .. :FZF<CR>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
-
+nnoremap <leader>bd :bd\|bd #<CR>
 " bind \ (backward slash) to grep shortcut
 " command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \\ :Ag<CR>

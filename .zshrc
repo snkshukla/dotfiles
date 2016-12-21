@@ -3,7 +3,7 @@ export ZSH=/Users/shubham/.oh-my-zsh
 
 ZSH_THEME="cobalt2"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git)
+plugins=(git docker-rails)
 
 source $ZSH/oh-my-zsh.sh
 

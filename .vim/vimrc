@@ -16,6 +16,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ngmy/vim-rubocop'
+Plug 'chrisbra/csv.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -66,8 +67,8 @@ match ExtraWhitespace /\s\+$/
 
 " The Silver Searcher
 if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag over grep
+  " set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " bind K to grep word under cursor
@@ -81,8 +82,6 @@ filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 set laststatus=2      "Show the status line all the time
 set showcmd           "Display incomplete commands.
-" Useful status information at bottom of screen
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Buffer related settings:
 set splitright
@@ -99,6 +98,7 @@ map <C-n> :NERDTreeToggle<CR>
 nnoremap .. :FZF<CR>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>bd :bd\|bd #<CR>
+nnoremap <leader>rr :!ruby %<CR>
 " bind \ (backward slash) to grep shortcut
 " command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \\ :Ag<CR>

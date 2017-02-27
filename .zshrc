@@ -33,6 +33,7 @@ echo "----------------------------------------"
 echo "Current time: `date +"%r %a %d %h %y"`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+PATH=/usr/local/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

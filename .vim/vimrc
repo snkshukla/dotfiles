@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ngmy/vim-rubocop'
 Plug 'chrisbra/csv.vim'
+Plug 'bronson/vim-visual-star-search'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

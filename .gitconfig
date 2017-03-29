@@ -1,0 +1,32 @@
+[user]
+	name = Shubham Shukla
+	email = snkshukla@gmail.com
+[pull]
+  rebase = true
+[push]
+  default = current
+[rebase]
+  autosquash = true
+  autostash = true
+[github]
+	user = snkshukla
+[rerere]
+  enabled = true
+[core]
+  excludesfile = ~/.gitignore_global
+	editor = vim
+[commit]
+  template = ~/.gitmessage
+[color]
+  ui = true
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p

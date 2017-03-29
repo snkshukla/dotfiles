@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
-. `brew --prefix`/etc/profile.d/z.sh
+#. `brew --prefix`/etc/profile.d/z.sh
 export PATH="/Users/shubham/anaconda2/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

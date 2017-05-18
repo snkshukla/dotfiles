@@ -37,3 +37,5 @@ PATH=/usr/local/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

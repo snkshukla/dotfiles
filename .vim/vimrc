@@ -1,35 +1,49 @@
 set t_Co=256                  "enable 256 colors
-colorscheme kellys
+colorscheme janah
+autocmd ColorScheme janah highlight Normal ctermbg=235
 " Stuff related to vim-plug
+
+" install vim-plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'   " needed by fugitive to browse the file on github/remote
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
-"Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-rails'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ngmy/vim-rubocop'
 Plug 'chrisbra/csv.vim'
-Plug 'bronson/vim-visual-star-search'
-Plug 'moll/vim-node'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'Valloric/YouCompleteMe'
+Plug 'thaerkh/vim-workspace'
+" Plug 'mhinz/vim-startify'
+" Plug 'vim-scripts/vim-auto-save'
+" Plug 'gabrielelana/vim-markdown'
+" Plug 'chr4/nginx.vim' " plugin for nginx support. enable only when needed
+" Plug 'ngmy/vim-rubocop'
+" Plug 'majutsushi/tagbar'
+" Plug 'bronson/vim-visual-star-search'
+" Plug 'moll/vim-node'
+" Plug 'JamshedVesuna/vim-markdown-preview'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 call plug#end()
 
-" use Ag, the silver searcher with ack.vim 
+" use Ag, the silver searcher with ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Settings
-
 set clipboard=unnamed           "To enable copy paste in vim
 syntax enable                   "Turn on syntax highlighting
 set number	                    "set the line number
@@ -98,16 +112,25 @@ noremap <C-l> <C-w>l
 
 map <C-n> :NERDTreeToggle<CR>
 nnoremap .. :FZF<CR>
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+" nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>bd :bd\|bd #<CR>
-nnoremap <leader>rr :!ruby %<CR>
+" nnoremap <leader>rr :!ruby %<CR>
 " bind \ (backward slash) to grep shortcut
 " command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \\ :Ag<CR>
 
+" bind cp command to copy the path of the current file
+nnoremap cp :let @+ = expand("%")<CR>
+
+" vim readme plugin
+" let vim_markdown_preview_github=1
+
+" let g:auto_save = 1  " enable AutoSave on Vim startup
+" let g:auto_save_silent = 1  " do not display the auto-save notification
+
 "Airline configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamenod = ':~:.'
+let g:airline#extensions#tabline#fnamenod = ':t'
 let g:airline_powerline_fonts = 1
 
 "enabling displaying index of the buffer.
@@ -122,4 +145,4 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
+nmap <leader>= <Plug>AirlineSelectNextTab

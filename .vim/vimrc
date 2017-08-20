@@ -25,6 +25,8 @@ Plug 'chrisbra/csv.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Valloric/YouCompleteMe'
 Plug 'thaerkh/vim-workspace'
+Plug 'Yggdroot/indentLine'
+" Plug 'thaerkh/vim-indentguides'
 " Plug 'mhinz/vim-startify'
 " Plug 'vim-scripts/vim-auto-save'
 " Plug 'gabrielelana/vim-markdown'
@@ -76,6 +78,8 @@ set incsearch                   "Search as you type
 highlight Search ctermbg=208 ctermfg=Black cterm=NONE
 set hlsearch
 
+set updatetime=200
+
 " Highlight trailing spaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -113,7 +117,6 @@ noremap <C-l> <C-w>l
 map <C-n> :NERDTreeToggle<CR>
 nnoremap .. :FZF<CR>
 " nnoremap <silent> <Leader>b :TagbarToggle<CR>
-nnoremap <leader>bd :bd\|bd #<CR>
 " nnoremap <leader>rr :!ruby %<CR>
 " bind \ (backward slash) to grep shortcut
 " command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
@@ -144,5 +147,7 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>= <Plug>AirlineSelectNextTab
+nmap <leader>a <Plug>AirlineSelectPrevTab
+nmap <leader>f <Plug>AirlineSelectNextTab
+nnoremap <leader>d :bd\|bd #<CR>
+nnoremap <leader>s :Buffers<CR>

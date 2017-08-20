@@ -4,3 +4,5 @@
 *.swp
 .vim/.undodir/
 .vim/Session.vim
+.undodir/
+Session.vim

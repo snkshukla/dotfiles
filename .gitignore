@@ -6,3 +6,8 @@
 .vim/Session.vim
 .undodir/
 Session.vim
+.DS_Store
+nvim/.netrwhist
+nvim/bundle
+nvim/plugged/**
+nvim/autoload

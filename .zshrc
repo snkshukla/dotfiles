@@ -3,7 +3,7 @@ export ZSH=/Users/shubham/.oh-my-zsh
 
 ZSH_THEME="cobalt2"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git docker-rails)
+plugins=(git docker-rails zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,3 +44,4 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
                  killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;
                  killall Finder /System/Library/CoreServices/Finder.app'
+source <(antibody init)

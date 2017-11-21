@@ -1,6 +1,6 @@
 set t_Co=256                  "enable 256 colors
-colorscheme janah
-autocmd ColorScheme janah highlight Normal ctermbg=235
+  colorscheme janah
+  autocmd ColorScheme janah highlight Normal ctermbg=235
 " Stuff related to vim-plug
 
 " install vim-plug if not installed
@@ -26,6 +26,9 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Valloric/YouCompleteMe'
 Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/indentLine'
+Plug 'avakhov/vim-yaml'
+Plug 'terryma/vim-smooth-scroll'
+" Plug 'vim-syntastic/syntastic'
 " Plug 'thaerkh/vim-indentguides'
 " Plug 'mhinz/vim-startify'
 " Plug 'vim-scripts/vim-auto-save'
@@ -55,6 +58,8 @@ set wildmode=longest,list,full  "bash-like tab completion.
 set wildmenu                    "first tab completes, second provides a list, third cycles through the options
 setlocal wrap
 
+set backupdir=~/vim-backup//
+set directory=~/vim-backup//
 " filetype settings
 filetype on                     "Enable filetype detection
 filetype indent on              "Enable filetype-specific indenting
@@ -125,6 +130,10 @@ nnoremap \\ :Ag<CR>
 " bind cp command to copy the path of the current file
 nnoremap cp :let @+ = expand("%")<CR>
 
+"vim syntastic
+" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_check_on_open = 1
 " vim readme plugin
 " let vim_markdown_preview_github=1
 

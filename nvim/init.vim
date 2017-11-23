@@ -12,6 +12,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                                                        "needed by fugitive to browse the file on github/remote
+Plug 'tpope/vim-abolish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
@@ -50,6 +51,9 @@ set background=dark                                                             
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 
+" use <Option-o> and <Option-O> to insert new lines in insert mode
+imap ø <Esc>o
+imap Ø <Esc>O
 
 " use Ag, the silver searcher with ack.vim
 " let g:ackprg = 'ag --nogroup --nocolor --column'

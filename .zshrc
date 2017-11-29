@@ -7,10 +7,10 @@ plugins=(git docker-rails zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 #. `brew --prefix`/etc/profile.d/z.sh
-export PATH="/Users/shubham/anaconda2/bin:$PATH"
+# export PATH="/Users/shubham/anaconda2/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -37,11 +37,12 @@ PATH=/usr/local/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
                  killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;
                  killall Finder /System/Library/CoreServices/Finder.app'
-source <(antibody init)
+# source <(antibody init)
+export GPG_TTY=$(tty)

@@ -7,3 +7,4 @@ dbon=ehq_bonfire_1
 dsql=ehq_db_1
 dweb=ehq_webpack.dev_1
 dkiq=ehq_v2.sidekiq_1
+dfl=~/dotfiles

@@ -33,6 +33,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'vimwiki/vimwiki'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Plug 'gabrielelana/vim-markdown'
 " Plug 'bronson/vim-visual-star-search'
 " Plug 'moll/vim-node'
@@ -117,6 +118,10 @@ set updatetime=100
 " Highlight trailing spaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" https://github.com/thaerkh/vim-workspace/issues/9 disabling trimming of
+" whitespaces
+let g:workspace_autosave_untrailspaces = 0
 " match                         "Disable above highlighting
 
 
@@ -203,3 +208,17 @@ nmap <leader>a <Plug>AirlineSelectPrevTab
 nmap <leader>f <Plug>AirlineSelectNextTab
 nmap <leader>d :bd\|bd #<CR>
 nmap <leader>s :Buffers<CR>
+
+"mappings for vim-go
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>

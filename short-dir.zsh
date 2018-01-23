@@ -1,6 +1,6 @@
 ehq=~/src/btt/ehq
 dehq=ehq_v2.puma_1
-drep=ehq_reporting.unicorn_1
+drep=ehq_reporting.puma_1
 ddb=ehq_db_1
 ehqp=~/src/btt/ehq/participation
 dbon=ehq_bonfire_1
@@ -8,3 +8,5 @@ dsql=ehq_db_1
 dweb=ehq_webpack.dev_1
 dkiq=ehq_v2.sidekiq_1
 dfl=~/dotfiles
+dapi=ehq_api.puma_1
+dng=ehq_nginx_1

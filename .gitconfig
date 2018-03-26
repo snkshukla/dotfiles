@@ -17,6 +17,7 @@
 	editor = vim
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [color]
   ui = true
 [init]

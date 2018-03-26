@@ -8,5 +8,5 @@ dsql=ehq_db_1
 dweb=ehq_webpack.dev_1
 dkiq=ehq_v2.sidekiq_1
 dfl=~/dotfiles
-dapi=ehq_api.puma_1
 dng=ehq_nginx_1
+dmod=ehq_modportal.unicorn_1

@@ -34,6 +34,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'vimwiki/vimwiki'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 " Plug 'gabrielelana/vim-markdown'
 " Plug 'bronson/vim-visual-star-search'
 " Plug 'moll/vim-node'
@@ -82,13 +83,28 @@ set mouse=a                     						                                    "enabl
 set wildmode=longest,list,full  						                                    "bash-like tab completion.
 set wildmenu                    						                                    "first tab completes, second provides a list, third cycles through the options
 
+"relative line numbers start
+set number relativenumber
+
+" we are using auto cmd group because if the same autocmd has been
+" defined twice in vimrc, vim will not replace the earlier one, it
+" will keep both. So auto cmd groups will remove this possibility.
+" The first command 'autocmd!' clears everything in the group.
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+" relative line number end
+
 set wrap
 set linebreak                                                                   "Wrap lines at convenient points
 set listchars=tab:\ \ ,trail:·                                                  "Set trails for tabs and spaces
 set list                                                                        "Enable listchars
 " set lazyredraw                                                                  "Do not redraw on registers and macros
 " set conceallevel=2 concealcursor=i                                              "neosnippets conceal marker
-" set inccommand=split                                                            "Show substitute changes immidiately in separate split
+set inccommand=split                                                            "Show substitute changes immidiately in separate split
 set fillchars+=vert:\│                                                          "Make vertical split separator full line
 
 set history=500									                                                "show lots of cmd line history
@@ -102,10 +118,7 @@ set splitright                                                                  
 set splitbelow                                                                  "Set up new horizontal splits positions
 
 set path+=**                                                                    "Allow recursive search
-" set inccommand=split                                                          "Show substitute changes immidiately in separate split
 set pumheight=30                                                                "Maximum number of entries in autocomplete popup
-" set exrc                                                                      "Allow using local vimrc
-" set secure                                                                    "Forbid autocmd in local vimrc
 set ttimeoutlen=0                                                               "Reduce Command timeout for faster escape and O
 set fileencoding=utf-8                                                          "Set utf-8 encoding on write
 
@@ -113,7 +126,7 @@ set fileencoding=utf-8                                                          
 " highlight Search ctermbg=208 ctermfg=Black cterm=NONE
 set hlsearch
 
-set updatetime=100
+set updatetime=0
 
 " Highlight trailing spaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -121,7 +134,7 @@ match ExtraWhitespace /\s\+$/
 
 " https://github.com/thaerkh/vim-workspace/issues/9 disabling trimming of
 " whitespaces
-let g:workspace_autosave_untrailspaces = 0
+" let g:workspace_autosave_untrailspaces = 0
 " match                         "Disable above highlighting
 
 

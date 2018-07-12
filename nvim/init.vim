@@ -1,4 +1,5 @@
-set t_Co=256                  "enable 256 colors
+" set t_Co=256                  "enable 256 colors
+set hidden
 
 "install vim-plug if not installed already
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -20,6 +21,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chrisbra/csv.vim'
+" Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/indentLine'
 Plug 'avakhov/vim-yaml'
@@ -28,13 +30,34 @@ Plug 'neomake/neomake'
 Plug 'Raimondi/delimitMate'
 Plug 'duff/vim-bufonly'
 Plug 'airblade/vim-gitgutter'
-Plug 'roxma/nvim-completion-manager'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'vimwiki/vimwiki'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'thoughtbot/vim-rspec'
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+
+"Automatic creation of ctags upon opening of a project
+Plug 'ludovicchabant/vim-gutentags'
+
+" Changes for javascript
+" ================ Turn Off Swap Files ============== {{{
+
+Plug 'skywind3000/asyncrun.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Quramy/tsuquyomi'
+Plug 'mhartington/deoplete-typescript'
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
+Plug 'vim-scripts/AnsiEsc.vim'
+
+" }}}
+"
 " Plug 'gabrielelana/vim-markdown'
 " Plug 'bronson/vim-visual-star-search'
 " Plug 'moll/vim-node'
@@ -42,8 +65,38 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'               "Always load this in last
 
 call plug#end()
+
+"sql completion turn off
+let g:loaded_sql_completion = 0
+let g:omni_sql_no_default_maps = 1
+
+"Vim rspec settings
+let g:rspec_command = "AsyncRun bin/rspec {spec}"
+"Deoplete and ternjs settings
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let g:deoplete#sources#tss#javascript_support = 1
+let g:tsuquyomi_javascript_support = 1
+let g:tsuquyomi_auto_open = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " for vim neomake
 call neomake#configure#automake('rw', 1000)
@@ -199,9 +252,9 @@ nnoremap ,, :Ag<CR>
 nnoremap cp :let @+ = expand("%")<CR>
 
 "bind <ESC><ESC> to close the terminal window
-tnoremap <ESC><ESC> <C-\><C-n>
+" tnoremap <ESC><ESC> <C-\><C-n>
 
-"Airline configuration
+" Airline configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamenod = ':t'
 let g:airline_powerline_fonts = 1
@@ -217,8 +270,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>a <Plug>AirlineSelectPrevTab
-nmap <leader>f <Plug>AirlineSelectNextTab
+nmap <S-Tab> <Plug>AirlineSelectPrevTab
+nmap <Tab> <Plug>AirlineSelectNextTab
 nmap <leader>d :bd\|bd #<CR>
 nmap <leader>s :Buffers<CR>
 

@@ -11,7 +11,7 @@ alias dexit="docker exec -it"
 alias dcp="docker-compose pull"
 alias dcpb="docker-compose pull && docker-compose build"
 alias dcps="docker-compose ps"
-alias drst="docker restart"
+alias drs="docker restart"
 
 # Helper functions for using docker with rails
 drc() {
@@ -36,5 +36,5 @@ ddb() {
 
 dbash() {
     [ $# -eq 0 ] && { echo "\nUsage: $0 app_container_name\n"; return 1; }
-    docker exec -it $1 /bin/bash;
+    docker exec -it $1 /bin/bash -c "stty cols $COLUMNS rows $LINES && bash";
 }

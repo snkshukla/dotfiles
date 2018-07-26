@@ -12,3 +12,11 @@ nvim/bundle
 nvim/plugged/**
 nvim/autoload
 *.log
+tags
+.tern-port
+.tags.lock
+tags.lock
+tags.temp
+*/.tern-port
+*@neomake*.rb
+temp.sql

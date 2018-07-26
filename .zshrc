@@ -34,7 +34,7 @@ echo "Current time: `date +"%r %a %d %h %y"`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/projects/go
-export PATH=~/.rbenv/shims:/usr/local/go/bin:$PATH
+export PATH=~/.rbenv/shims:/usr/local/go/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

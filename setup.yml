@@ -1,0 +1,123 @@
+---
+
+- name: Dev env setup
+  hosts: local
+
+  tasks:
+
+  - name: Tap caskroom/fonts for powerline fonts
+    homebrew_tap:
+      name: homebrew/cask-fonts
+
+  # - name: Tap caskroom/versions for edge versions
+  #   homebrew_tap:
+  #     name: homebrew/cask-versions
+
+  - name: Install fonts
+    homebrew_cask:
+      name: font-firacode-nerd-font
+
+  - name: Install neovim
+    homebrew:
+      name: neovim
+      install_options: HEAD
+
+  - name: Install other utilities
+    homebrew: name={{ item }}
+    with_items:
+      - zsh-syntax-highlighting
+      - ctags
+      - fortune
+      - node
+
+  - name: Add node support for neovim
+    npm:
+      name: neovim
+      global: yes
+
+  - name: Add ruby support for neovim
+    gem:
+      name: neovim
+
+  - name: Add ruby support for neovim
+    pip:
+      name: neovim
+      executable: pip3
+
+  - name: Remove the default zshrc file
+    file:
+      path: ~/.zshrc
+      state: absent
+
+  - name: Create config directory for neovim
+    file:
+      path: ~/.config/nvim/
+      state: directory
+
+  - name: Symlink the config files for zsh and neovim
+    file:
+      src: "$HOME/dotfiles/.zshrc"
+      dest: "$HOME/.zshrc"
+      state: link
+      force: yes
+
+  - name: Symlink the cobalt theme to oh my zsh
+    file:
+      src: "$HOME/dotfiles/cobalt2.zsh-theme"
+      dest: "$ZSH/themes/cobalt2.zsh-theme"
+      state: link
+      force: yes
+
+  - name: get the afterglow themeto home directory
+    get_url:
+      url: https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Afterglow.itermcolors
+      dest: "$HOME/Afterglow.itermcolors"
+
+  - name: Symlink the neovim config files
+    file:
+      src: "$HOME/dotfiles/nvim/init.vim"
+      dest: "$HOME/.config/nvim/init.vim"
+      state: link
+      force: yes
+
+  - name: Symlink the neovim colorscheme
+    file:
+      src: "$HOME/dotfiles/nvim/colors"
+      dest: "$HOME/.config/nvim/colors"
+      state: link
+      force: yes
+
+  - name: Symlink the gitignore file
+    file:
+      src: "$HOME/dotfiles/.gitignore"
+      dest: "$HOME/.gitignore"
+      state: link
+      force: yes
+
+  - name: Symlink the git_template directory
+    file:
+      src: "$HOME/dotfiles/.git_template"
+      dest: "$HOME/.git_template"
+      state: link
+      force: yes
+
+  - name: Symlink the git config file
+    file:
+      src: "$HOME/dotfiles/.gitconfig"
+      dest: "$HOME/.gitconfig"
+      state: link
+      force: yes
+
+  - name: Symlink the short dir alias file
+    file:
+      src: "$HOME/dotfiles/short-dir.zsh"
+      dest: "$ZSH/custom/short-dir.zsh"
+      state: link
+      force: yes
+
+  - name: Symlink the docker alias file
+    file:
+      src: "$HOME/dotfiles/docker-rails.zsh"
+      dest: "$ZSH/custom/docker-rails.zsh"
+      state: link
+      force: yes

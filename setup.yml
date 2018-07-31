@@ -25,6 +25,8 @@
   - name: Install other utilities
     homebrew: name={{ item }}
     with_items:
+      - ruby
+      - rbenv
       - zsh-syntax-highlighting
       - ctags
       - fortune
@@ -39,7 +41,7 @@
     gem:
       name: neovim
 
-  - name: Add ruby support for neovim
+  - name: Add python support for neovim
     pip:
       name: neovim
       executable: pip3
@@ -90,7 +92,7 @@
   - name: Symlink the gitignore file
     file:
       src: "$HOME/dotfiles/.gitignore"
-      dest: "$HOME/.gitignore"
+      dest: "$HOME/.gitignore_global"
       state: link
       force: yes
 

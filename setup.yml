@@ -70,6 +70,11 @@
       state: link
       force: yes
 
+  - name: Clone zsh-autosuggestions to oh-my-zsh
+    git:
+      repo: https://github.com/zsh-users/zsh-autosuggestions
+      dest: "$ZSH/custom/plugins/zsh-autosuggestions"
+
   - name: get the afterglow themeto home directory
     get_url:
       url: https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Afterglow.itermcolors

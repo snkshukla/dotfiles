@@ -45,7 +45,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
-Plug 'mhartington/deoplete-typescript'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -53,7 +52,6 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-Plug 'carlitux/deoplete-ternjs'
 Plug 'vim-scripts/AnsiEsc.vim'
 
 " }}}
@@ -88,10 +86,6 @@ let g:deoplete#max_menu_width = 0
 let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
-let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
 let g:deoplete#sources#tss#javascript_support = 1
 let g:tsuquyomi_javascript_support = 1
 let g:tsuquyomi_auto_open = 1

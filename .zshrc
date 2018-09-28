@@ -3,11 +3,13 @@ export ZSH=/Users/shubham/.oh-my-zsh
 
 ZSH_THEME="cobalt2"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git docker-rails zsh-autosuggestions short-dir)
+plugins=(git docker-rails zsh-autosuggestions short-dir zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
+
+autoload -U compinit && compinit
 
 #. `brew --prefix`/etc/profile.d/z.sh
 # export PATH="/Users/shubham/anaconda2/bin:$PATH"

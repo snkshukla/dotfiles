@@ -31,6 +31,7 @@
       - ctags
       - fortune
       - node
+      - diff-so-fancy
 
   - name: Add node support for neovim
     npm:
@@ -74,7 +75,12 @@
     git:
       repo: https://github.com/zsh-users/zsh-autosuggestions
       dest: "$ZSH/custom/plugins/zsh-autosuggestions"
-
+ 
+  - name: Clone zsh-completions to oh-my-zsh
+    git:
+      repo: https://github.com/zsh-users/zsh-completions
+      dest: "$ZSH/custom/plugins/zsh-completions"
+      
   - name: get the afterglow themeto home directory
     get_url:
       url: https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Afterglow.itermcolors

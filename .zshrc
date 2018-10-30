@@ -48,3 +48,5 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;
                  killall Finder /System/Library/CoreServices/Finder.app'
 export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+
+export HISTFILE=~/dotfiles/backup_files/.zsh_history

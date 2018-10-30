@@ -1,5 +1,5 @@
 ehq=~/src/btt/ehq
-dehq=ehq_v2.puma_1
+dehq=ehq_v2.unicorn_1
 drep=ehq_reporting.puma_1
 ddb=ehq_db_1
 ehqp=~/src/btt/ehq/participation

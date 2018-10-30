@@ -63,6 +63,7 @@
       dest: "$HOME/.zshrc"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the cobalt theme to oh my zsh
     file:
@@ -70,17 +71,18 @@
       dest: "$ZSH/themes/cobalt2.zsh-theme"
       state: link
       force: yes
+      follow: false
 
   - name: Clone zsh-autosuggestions to oh-my-zsh
     git:
       repo: https://github.com/zsh-users/zsh-autosuggestions
       dest: "$ZSH/custom/plugins/zsh-autosuggestions"
- 
+
   - name: Clone zsh-completions to oh-my-zsh
     git:
       repo: https://github.com/zsh-users/zsh-completions
       dest: "$ZSH/custom/plugins/zsh-completions"
-      
+
   - name: get the afterglow themeto home directory
     get_url:
       url: https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Afterglow.itermcolors
@@ -92,6 +94,7 @@
       dest: "$HOME/.config/nvim/init.vim"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the neovim colorscheme
     file:
@@ -99,13 +102,15 @@
       dest: "$HOME/.config/nvim/colors"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the gitignore file
     file:
-      src: "$HOME/dotfiles/.gitignore"
+      src: "$HOME/dotfiles/global_gitignore"
       dest: "$HOME/.gitignore_global"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the git_template directory
     file:
@@ -113,6 +118,7 @@
       dest: "$HOME/.git_template"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the git config file
     file:
@@ -120,6 +126,7 @@
       dest: "$HOME/.gitconfig"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the short dir alias file
     file:
@@ -127,6 +134,7 @@
       dest: "$ZSH/custom/short-dir.zsh"
       state: link
       force: yes
+      follow: false
 
   - name: Symlink the docker alias file
     file:
@@ -134,3 +142,4 @@
       dest: "$ZSH/custom/docker-rails.zsh"
       state: link
       force: yes
+      follow: false

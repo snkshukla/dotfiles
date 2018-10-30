@@ -36,7 +36,7 @@ echo "Current time: `date +"%r %a %d %h %y"`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/projects/go
-export PATH=~/.rbenv/shims:/usr/local/go/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH
+export PATH=~/.rbenv/shims:/usr/local/go/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/Users/shubham/Library/Android/sdk/platform-tools:/Users/shubham/Library/Android/sdk/tools/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -47,3 +47,4 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
                  killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;
                  killall Finder /System/Library/CoreServices/Finder.app'
+export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"

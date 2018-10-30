@@ -1,0 +1,17 @@
+.vim/.netrwhist
+.vim/bundle
+.vim/plugged/**
+*.swp
+.vim/.undodir/
+.vim/Session.vim
+.undodir/
+Session.vim
+.DS_Store
+*.log
+tags
+.tern-port
+.tags.lock
+tags.lock
+tags.temp
+*/.tern-port
+*@neomake*.rb

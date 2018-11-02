@@ -23,15 +23,8 @@
       install_options: HEAD
 
   - name: Install other utilities
-    homebrew: name={{ item }}
-    with_items:
-      - ruby
-      - rbenv
-      - zsh-syntax-highlighting
-      - ctags
-      - fortune
-      - node
-      - diff-so-fancy
+    homebrew:
+      name: ['ruby', 'rbenv', 'zsh-syntax-highlighting', 'ctags', 'fortune', 'node', 'diff-so-fancy']
 
   - name: Add node support for neovim
     npm:
@@ -143,3 +136,8 @@
       state: link
       force: yes
       follow: false
+
+  - name: Uninstall the ruby installed by homebrew
+    homebrew:
+      name: ruby
+      state: absent

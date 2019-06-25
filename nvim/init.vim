@@ -133,6 +133,9 @@ set wildmenu                    						                                    "first
 "relative line numbers start
 set number relativenumber
 
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 " we are using auto cmd group because if the same autocmd has been
 " defined twice in vimrc, vim will not replace the earlier one, it
 " will keep both. So auto cmd groups will remove this possibility.

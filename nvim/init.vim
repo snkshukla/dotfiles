@@ -21,7 +21,6 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chrisbra/csv.vim'
-" Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/indentLine'
 Plug 'avakhov/vim-yaml'
@@ -41,18 +40,18 @@ Plug 'ludovicchabant/vim-gutentags'
 " Changes for javascript
 " ================ Turn Off Swap Files ============== {{{
 
-Plug 'skywind3000/asyncrun.vim'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Quramy/tsuquyomi'
+Plug 'alvan/vim-closetag'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'vim-scripts/AnsiEsc.vim'
+
+Plug 'skywind3000/asyncrun.vim'
 
 " }}}
 "
@@ -68,6 +67,8 @@ Plug 'ryanoasis/vim-devicons'               "Always load this in last
 
 call plug#end()
 
+let g:indentLine_setColors = 0
+let g:indentLine_char = '┆'
 "sql completion turn off
 let g:loaded_sql_completion = 0
 let g:omni_sql_no_default_maps = 1
@@ -87,10 +88,11 @@ let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 let g:deoplete#sources#tss#javascript_support = 1
-let g:tsuquyomi_javascript_support = 1
-let g:tsuquyomi_auto_open = 1
-let g:tsuquyomi_disable_quickfix = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:asyncrun_open = 8
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
+autocmd BufWritePost *.js AsyncRun -post=checktime eslint --fix %
 
 " for vim neomake
 call neomake#configure#automake('rw', 1000)
@@ -255,6 +257,9 @@ nnoremap cp :let @+ = expand("%")<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamenod = ':t'
 let g:airline_powerline_fonts = 1
+
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 "enabling displaying index of the buffer.
 let g:airline#extensions#tabline#buffer_idx_mode = 1

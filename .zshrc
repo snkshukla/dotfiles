@@ -36,7 +36,8 @@ echo "Current time: `date +"%r %a %d %h %y"`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/projects/go
-export PATH=~/.rbenv/shims:/usr/local/go/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/Users/shubham/Library/Android/sdk/platform-tools:/Users/shubham/Library/Android/sdk/tools/bin:$PATH
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH=~/.rbenv/shims:${GOPATH}/bin:${GOROOT}/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/Users/shubham/Library/Android/sdk/platform-tools:/Users/shubham/Library/Android/sdk/tools/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

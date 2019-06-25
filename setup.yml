@@ -76,10 +76,16 @@
       repo: https://github.com/zsh-users/zsh-completions
       dest: "$ZSH/custom/plugins/zsh-completions"
 
-  - name: get the afterglow themeto home directory
+  - name: get the afterglow theme to the home directory
     get_url:
       url: https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Afterglow.itermcolors
       dest: "$HOME/Afterglow.itermcolors"
+
+  - name: Specify the preferences directory for iterm2 preferences
+    command: defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+
+  - name: Tell iTerm2 to use the custom preferences in the above specifed directory
+    command: defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
   - name: Symlink the neovim config files
     file:

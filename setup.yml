@@ -50,7 +50,7 @@
       path: ~/.config/nvim/
       state: directory
 
-  - name: Symlink the config files for zsh and neovim
+  - name: Symlink the config file for zsh
     file:
       src: "$HOME/dotfiles/.zshrc"
       dest: "$HOME/.zshrc"
@@ -89,11 +89,18 @@
 
   - name: Symlink the neovim config files
     file:
-      src: "$HOME/dotfiles/nvim/init.vim"
-      dest: "$HOME/.config/nvim/init.vim"
+      src: "$HOME/dotfiles/nvim/{{ item.src }}"
+      dest: "$HOME/.config/nvim/{{ item.dest }}"
       state: link
       force: yes
       follow: false
+    with_items:
+      - { src: init.vim, dest: init.vim }
+      - { src: colorschemes.vim, dest: colorschemes.vim }
+      - { src: abbrev.vim, dest: abbrev.vim }
+      - { src: key_mappings.vim, dest: key_mappings.vim }
+      - { src: plugins_list.vim, dest: plugins_list.vim }
+      - { src: plugin_settings.vim, dest: plugin_settings.vim }
 
   - name: Symlink the neovim colorscheme
     file:

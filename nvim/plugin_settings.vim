@@ -17,6 +17,11 @@ let g:deoplete#sources#tss#javascript_support = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:asyncrun_open = 8
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories = ["/Users/shubham/dotfiles/Ultisnips/"]
+
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 autocmd BufWritePost *.js AsyncRun -post=checktime eslint --fix %
 
@@ -28,9 +33,6 @@ let g:enable_italic_font = 1    						                                    "Enabl
 " DelimitMate settings
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 2
-
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " https://github.com/thaerkh/vim-workspace/issues/9 disabling trimming of
 " whitespaces

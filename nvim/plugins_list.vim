@@ -36,10 +36,7 @@ Plug 'alvan/vim-closetag'
 Plug 'Shougo/deoplete.nvim' ", { 'do': function('DoRemote') }
 Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'skywind3000/asyncrun.vim'
-
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+Plug 'SirVer/ultisnips'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

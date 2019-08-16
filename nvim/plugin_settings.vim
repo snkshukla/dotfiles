@@ -34,17 +34,9 @@ let g:enable_italic_font = 1    						                                    "Enabl
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 2
 
-" https://github.com/thaerkh/vim-workspace/issues/9 disabling trimming of
-" whitespaces
-" let g:workspace_autosave_untrailspaces = 0
-" match                         "Disable above highlighting
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamenod = ':t'
 let g:airline_powerline_fonts = 1
-
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
 
 "enabling displaying index of the buffer.
 let g:airline#extensions#tabline#buffer_idx_mode = 1

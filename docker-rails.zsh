@@ -8,6 +8,7 @@ alias dcl="COMPOSE_HTTP_TIMEOUT=10000 docker-compose logs -f"
 alias dcr="docker-compose restart"
 alias dcs="docker-compose stop"
 alias dexit="docker exec -it"
+alias dcx="docker-compose exec"
 alias dcp="docker-compose pull"
 alias dcpb="docker-compose pull && docker-compose build"
 alias dcps="docker-compose ps"
@@ -38,3 +39,9 @@ dbash() {
     [ $# -eq 0 ] && { echo "\nUsage: $0 app_container_name\n"; return 1; }
     docker exec -it $1 /bin/bash -c "stty cols $COLUMNS rows $LINES && bash";
 }
+
+dcbash() {
+    [ $# -eq 0 ] && { echo "\nUsage: $0 app_container_name\n"; return 1; }
+    docker-compose exec $1 /bin/bash -c "stty cols $COLUMNS rows $LINES && bash";
+}
+

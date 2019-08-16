@@ -41,6 +41,7 @@ export PATH=~/.rbenv/shims:${GOPATH}/bin:${GOROOT}/bin:/usr/local/Caskroom/googl
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export FZF_DEFAULT_COMMAND='ag -g ""'
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
@@ -51,3 +52,16 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;
 export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
 
 export HISTFILE=~/dotfiles/backup_files/.zsh_history
+
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/shubham/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shubham/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/shubham/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/shubham/google-cloud-sdk/completion.zsh.inc'; fi

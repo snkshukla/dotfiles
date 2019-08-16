@@ -3,7 +3,7 @@ export ZSH=/Users/shubham/.oh-my-zsh
 
 ZSH_THEME="cobalt2"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git docker-rails zsh-autosuggestions short-dir zsh-completions)
+plugins=(git zsh-autosuggestions zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,8 +53,9 @@ export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
 
 export HISTFILE=~/dotfiles/backup_files/.zsh_history
 
-export NVM_DIR=~/.nvm
-source ~/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"

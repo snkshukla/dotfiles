@@ -101,6 +101,7 @@
       - { src: key_mappings.vim, dest: key_mappings.vim }
       - { src: plugins_list.vim, dest: plugins_list.vim }
       - { src: plugin_settings.vim, dest: plugin_settings.vim }
+      - { src: vim_settings.vim, dest: vim_settings.vim }
 
   - name: Symlink the neovim colorscheme
     file:

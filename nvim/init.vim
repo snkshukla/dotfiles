@@ -5,4 +5,3 @@ source ~/.config/nvim/plugin_settings.vim
 source ~/.config/nvim/abbrev.vim
 source ~/.config/nvim/key_mappings.vim
 source ~/.config/nvim/vim_settings.vim
-

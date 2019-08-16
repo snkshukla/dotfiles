@@ -33,7 +33,7 @@ endsnippet
 snippet rfc "React Functional Component"
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './${2:$1}.css';
+import classes from './${2:`!v expand('%:t:r')`}.module.css';
 
 const ${1:`!v expand('%:t:r')`} = ( props ) => {
 	return (
@@ -136,7 +136,7 @@ for`!p snip.rv = keyword_spacing(snip)`(${1:prop} in ${2:obj}){
 }
 endsnippet
 
-snippet if "if (condition) { ... }"
+snippet iff "if (condition) { ... }"
 if`!p snip.rv = keyword_spacing(snip)`(${1:true}) {
 	${VISUAL}$0
 }

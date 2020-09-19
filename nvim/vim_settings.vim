@@ -20,6 +20,8 @@ augroup numbertoggle
 augroup END
 " relative line number end
 
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript   " typescript formatting with prettier
+
 set wrap
 set linebreak                                                                   "Wrap lines at convenient points
 set listchars=tab:\ \ ,trail:·                                                  "Set trails for tabs and spaces
@@ -40,6 +42,7 @@ set ttimeoutlen=0                                                               
 set fileencoding=utf-8                                                          "Set utf-8 encoding on write
 set hlsearch
 set updatetime=0
+:set tags^=./.git/tags
 
 " Highlight trailing spaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -66,3 +69,5 @@ set scrolloff=8                                                                 
 set sidescrolloff=15
 set sidescroll=5
 " }}}
+"
+au BufNewFile,BufRead *.tpl :set filetype=php

@@ -22,26 +22,35 @@ Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/indentLine'
 Plug 'avakhov/vim-yaml'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'neomake/neomake'
+" Plug 'dense-analysis/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'duff/vim-bufonly'
 Plug 'airblade/vim-gitgutter'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'thoughtbot/vim-rspec'
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Plug 'thoughtbot/vim-rspec'
+" Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+" Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
 Plug 'Shougo/deoplete.nvim' ", { 'do': function('DoRemote') }
 Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'SirVer/ultisnips'
 
+" Typescript related plugins
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+
 Plug 'ryanoasis/vim-devicons'               "Always load this in last
+Plug 'hashivim/vim-terraform'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()

@@ -15,3 +15,4 @@ tags.lock
 tags.temp
 */.tern-port
 *@neomake*.rb
+output

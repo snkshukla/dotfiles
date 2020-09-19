@@ -24,7 +24,12 @@
 
   - name: Install other utilities
     homebrew:
-      name: ['ruby', 'rbenv', 'zsh-syntax-highlighting', 'ctags', 'fortune', 'node', 'diff-so-fancy']
+      name: ['fzf', 'the_silver_searcher', 'ruby', 'rbenv', 'zsh-syntax-highlighting', 'ctags', 'source-highlight',
+             'motivate', 'node', 'diff-so-fancy', 'bat', 'tldr', 'fd']
+
+  - name: Install common software
+    homebrew_cask:
+      name: ['google-chrome', 'firefox', 'slack', 'iterm2', 'sublime-text']
 
   - name: Add node support for neovim
     npm:

@@ -13,6 +13,12 @@ alias dcp="docker-compose pull"
 alias dcpb="docker-compose pull && docker-compose build"
 alias dcps="docker-compose ps"
 alias drs="docker restart"
+alias ke="kubens"
+alias kx="kubectx"
+alias k="kubectl"
+alias wl="cd ~/src/welab"
+alias wla="cd ~/src/welab/gitlab-projects/alfresco"
+alias wlg="cd ~/src/welab/gitlab-projects"
 
 # Helper functions for using docker with rails
 drc() {

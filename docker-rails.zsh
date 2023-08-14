@@ -13,6 +13,9 @@ alias dcp="docker-compose pull"
 alias dcpb="docker-compose pull && docker-compose build"
 alias dcps="docker-compose ps"
 alias drs="docker restart"
+alias k="kubectl"
+alias kx="kubectx"
+alias ke="kubens"
 
 # Helper functions for using docker with rails
 drc() {

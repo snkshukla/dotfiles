@@ -1,10 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/shubham/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="cobalt2"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git zsh-autosuggestions zsh-completions)
 
+export ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
@@ -36,8 +37,8 @@ echo "Current time: `date +"%r %a %d %h %y"`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/projects/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH=~/.rbenv/shims:${GOPATH}/bin:${GOROOT}/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/Users/shubham/Library/Android/sdk/platform-tools:/Users/shubham/Library/Android/sdk/tools/bin:$PATH
+export GOROOT="/usr/local/opt/go"
+export PATH=~/.rbenv/shims:${GOPATH}/bin:${GOROOT}/bin:/Users/shubhamshukla/Library/Python/3.9/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/Users/shubham/Library/Android/sdk/platform-tools:/Users/shubham/Library/Android/sdk/tools/bin:$PATH
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -61,8 +62,13 @@ export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/shubham/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shubham/google-cloud-sdk/path.zsh.inc'; fi
-
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/shubham/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/shubham/google-cloud-sdk/completion.zsh.inc'; fi
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"

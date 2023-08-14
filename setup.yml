@@ -5,9 +5,9 @@
 
   tasks:
 
-  - name: Tap caskroom/fonts for powerline fonts
-    homebrew_tap:
-      name: homebrew/cask-fonts
+ - name: Tap caskroom/fonts for powerline fonts
+   homebrew_tap:
+     name: homebrew/cask-fonts
 
   # - name: Tap caskroom/versions for edge versions
   #   homebrew_tap:
@@ -15,7 +15,7 @@
 
   - name: Install fonts
     homebrew_cask:
-      name: font-firacode-nerd-font
+      name: font-fira-code-nerd-font
 
   - name: Install neovim
     homebrew:

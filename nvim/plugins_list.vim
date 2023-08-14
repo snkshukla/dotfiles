@@ -33,10 +33,12 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
-Plug 'Shougo/deoplete.nvim' ", { 'do': function('DoRemote') }
 Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'SirVer/ultisnips'
+Plug 'github/copilot.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

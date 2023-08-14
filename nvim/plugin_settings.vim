@@ -1,19 +1,10 @@
+let g:loaded_perl_provider = 0
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┆'
 let g:loaded_sql_completion = 0   "sql completion turn off
 let g:omni_sql_no_default_maps = 1  "sql completion turn off
 let g:rspec_command = "AsyncRun bin/rspec {spec}" "Vim rspec settings
-"Deoplete and ternjs settings
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 0
-let g:deoplete#max_menu_width = 0
-let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-let g:deoplete#sources#tss#javascript_support = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:asyncrun_open = 8
 
@@ -41,6 +32,11 @@ let g:airline_powerline_fonts = 1
 "enabling displaying index of the buffer.
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
+"vim-terraform settings
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
+let g:terraform_fold_sections = 1
+
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -51,3 +47,57 @@ function! s:build_go_files()
   endif
 endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+" =============================== Settings for ddc plugin==========
+" Customize global settings
+
+" You must set the default ui.
+" NOTE: native ui
+" https://github.com/Shougo/ddc-ui-native
+call ddc#custom#patch_global('ui', 'native')
+
+" Use around source.
+" https://github.com/Shougo/ddc-source-around
+call ddc#custom#patch_global('sources', ['around'])
+
+" Use matcher_head and sorter_rank.
+" https://github.com/Shougo/ddc-matcher_head
+" https://github.com/Shougo/ddc-sorter_rank
+call ddc#custom#patch_global('sourceOptions', #{
+      \ _: #{
+      \   matchers: ['matcher_head'],
+      \   sorters: ['sorter_rank']},
+      \ })
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', #{
+      \   around: #{ mark: 'A' },
+      \ })
+call ddc#custom#patch_global('sourceParams', #{
+      \   around: #{ maxSize: 500 },
+      \ })
+
+" Customize settings on a filetype
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sources',
+      \ ['around', 'clangd'])
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', #{
+      \   clangd: #{ mark: 'C' },
+      \ })
+call ddc#custom#patch_filetype('markdown', 'sourceParams', #{
+      \   around: #{ maxSize: 100 },
+      \ })
+
+" Mappings
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
+" =============================== Settings for ddc plugin==========
